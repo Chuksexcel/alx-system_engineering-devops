@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# A Bash script that displays numbers from 1 to 20 and:
+# displyas 4 and then bad luck from China for the 4th loop iteration
+# displays 9 and then bad luck from Japan for the 9th loop iteration
+# displays 17 and then bad luck from Italy for the 17th loop iteration
+
+printNumbers=1
+while [ $printNumbers -lt 21 ]
+do
+	echo "$printNumbers"
+	case $printNumbers in
+		4)
+			echo "bad luck from China"
+			;;
+		9)
+			echo "bad luck from Japan"
+			;;
+		17)
+			echo "bad luck from Italy"
+			;;
+		*)
+			;;
+	esac
+	printNumbers=$((printNumbers+1))
+done
