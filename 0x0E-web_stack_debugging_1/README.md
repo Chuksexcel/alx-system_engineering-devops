@@ -93,4 +93,3 @@ and sweet.
     root@966c5664b21f:/# service nginx status
      * nginx is not running
     root@966c5664b21f:/#
-    ```>
