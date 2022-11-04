@@ -1,4 +1,4 @@
-# 0x11. What happens when you type holbertonschool.com in your browser and press Enter
+# 0x11-what happens when your type google.com in your browser and press enter
 
 <p align="center">
   <img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/298/aJPw3mw.jpg" />
