@@ -19,5 +19,5 @@ frontend th3gr00t-tech-frontend
 
 backend th3gr00t-tech-backend
 	balance roundrobin
-	server 453-web-01 54.87.238.0 check
-	server 453-web-02 100.26.253.132 check
+	server 453-web-01 54.87.238.0:80 check
+	server 453-web-02 100.26.253.132:80 check
