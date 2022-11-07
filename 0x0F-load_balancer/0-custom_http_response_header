@@ -15,15 +15,22 @@ service nginx status
 printf %s "server {
     listen 80;
     listen [::]:80 default_server;
+
     root    /var/www/html;
+
     index index.html index.htm;
+
     location / {
         add_header X-Served-By "03-web-01";
     }
+
     location /redirect_me {
         return 301 https://modtechy.ke/;
     }
+
+
     error_page 404 /404.html;
+
     location /404 {
     root /var/www/html;
     internal;
