@@ -12,8 +12,8 @@ frontend web-frontend
     default_backend web-backend
 backend web-backend
     balance roundrobin
-    server 47046-web-01 44.197.251.60 check port 80
-    server 47046-web-02 54.158.217.227 check port 80
+    server 33989-web-01 54.87.238.0 check port 80
+    server 33989-web-02 100.26.253.132 check port 80
 " >> /etc/haproxy/haproxy.cfg
 haproxy -c -f /etc/haproxy/haproxy.cfg
 service haproxy start
