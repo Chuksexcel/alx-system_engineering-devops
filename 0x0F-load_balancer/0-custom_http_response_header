@@ -1,9 +1,33 @@
 #!/usr/bin/env bash
-# Script that configures Nginx server with a custom header
+# creating a custom header request/respone
+
 apt-get -y update
 apt-get -y install nginx
-echo "Alx School" > /var/www/html/index.nginx-debian.html
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
-sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/adexino0606 permanent;\n\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}/" /etc/nginx/sites-available/default
-sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOSTNAME\";/" /etc/nginx/nginx.conf
+sudo ufw allow 'Nginx HTTP'
+sudo chown -R "$USER":"$USER" /var/www/
+sudo chmod -R 755 /var/www/
+rm -rf /var/www/html/*
+echo "Hello World!" > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
 service nginx start
+service nginx status
+
+printf %s "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root    /var/www/html;
+    index index.html index.htm;
+    location / {
+        add_header X-Served-By "03-web-01";
+    }
+    location /redirect_me {
+        return 301 https://modtechy.ke/;
+    }
+    error_page 404 /404.html;
+    location /404 {
+    root /var/www/html;
+    internal;
+    }
+}" > /etc/nginx/sites-available/default
+
+service nginx restart
