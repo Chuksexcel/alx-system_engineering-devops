@@ -1,30 +1,40 @@
 #!/usr/bin/python3
-'''A script that gathers employee name completed
-tasks and total number of tasks from an API
-'''
+""" Script to get TODO list progress
+    by employee ID
+"""
+from requests import get
+from sys import argv
 
-import re
-import requests
-import sys
 
-REST_API = "https://jsonplaceholder.typicode.com"
+def todo(emp_id):
+    """ Send request for employee's
+        to do list to API
+    """
+    total = 0
+    completed = 0
+    url_user = 'https://jsonplaceholder.typicode.com/users/'
+    url_todo = 'https://jsonplaceholder.typicode.com/todos/'
+
+    # check if user exists
+    user = get(url_user + emp_id).json().get('name')
+
+    if user:
+        params = {'userId': emp_id}
+        #  get all tasks
+        tasks = get(url_todo, params=params).json()
+        if tasks:
+            total = len(tasks)
+            #  get number of completed tasks
+            params.update({'completed': 'true'})
+            completed = len(get(url_todo, params=params).json())
+
+        print("Employee {} is done with tasks({}/{}):".format(
+            user, completed, total))
+        for task in tasks:
+            if task.get('completed') is True:
+                print("\t {}".format(task.get('title')))
+
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        if re.fullmatch(r'\d+', sys.argv[1]):
-            id = int(sys.argv[1])
-            emp_req = requests.get('{}/users/{}'.format(REST_API, id)).json()
-            task_req = requests.get('{}/todos'.format(REST_API)).json()
-            emp_name = emp_req.get('name')
-            tasks = list(filter(lambda x: x.get('userId') == id, task_req))
-            completed_tasks = list(filter(lambda x: x.get('completed'), tasks))
-            print(
-                'Employee {} is done with tasks({}/{}):'.format(
-                    emp_name,
-                    len(completed_tasks),
-                    len(tasks)
-                )
-            )
-            if len(completed_tasks) > 0:
-                for task in completed_tasks:
-                    print('\t {}'.format(task.get('title')))
+    if len(argv) > 1:
+        todo(argv[1])
