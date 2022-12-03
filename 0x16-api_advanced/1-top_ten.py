@@ -1,23 +1,38 @@
 #!/usr/bin/python3
-"""
-queries the Reddit API and prints the titles of the first 10
-hot posts listed for a given subreddit
-"""
+'''
+function that queries the Reddit API
+prints the titles of the first 10 hot posts
+'''
 import requests
 
 
 def top_ten(subreddit):
-    """prints titles of the first 10hot posts"""
+    '''print only top 10 posts for a given post
+    Parameters
+    ----------
+    subreddit: [location]
+            The path for quering the post from reddit
+    redirect: allow_redirects
+            always false to ensure no redirects incase of invalid post
+    Returns
+    -------
+            if subreddit == True:
+                    print out top 10 hot post
+            else
+                    print None for an invalid subreddit
+    '''
+    url = 'https://www.reddit.com/'
     headers = {
-        "User-Agent": "0x16. API_advanced-e_kiminza"
-    }
-    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
-    params = {"limit": 10}
-    response = requests.get(url, headers=headers,
-                            params=params, allow_redirects=False)
-    if response.status_code != 200:
-        print("None")
-        return
-    response_ = response.json().get("data")
-    for child in response_.get("children"):
-        print(child.get("data").get("title"))
+        'User-Agent':
+        'Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0'}
+
+    res = requests.get('{}/r/{}/hot/.json'.format(url,
+                                                  subreddit), headers=headers,
+                       allow_redirects=False)
+    if res.status_code == 200:
+        my_res = res.json()['data']['children'][:10]
+        for values in my_res:
+            value = values['data']['title']
+            print(value)
+    else:
+        print(None)
