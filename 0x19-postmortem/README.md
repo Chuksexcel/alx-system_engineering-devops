@@ -5,11 +5,11 @@ The following incident report is based on <a href="https://github.com/Chuksexcel
 Please find below summary by Chukwuemeka Samuel\
 Attached report <a href="https://docs.google.com/document/d/1iJzntW8DC7BnMHGDQLUeJL91xq5YwllsBHkB2HWtomU/edit?usp=sharing">Report</a>
 
-## Issue Summary
+## Summary
 
 From 09:25 AM to 10:15 PM  WAT, a request to nginx web server failed on port 80, thus resulting in an empty response message 204. The Websites that rely on nginx application web servers were not able to spin up it’s content which resulted to empty responses
 
-### Timeline (All time West African Time)
+### Timeline (All time West Africa Time)
 
 09:25 AM WAT: Nginx Configuration push starts\
 09:45 AM WAT: Beginning Outage\
