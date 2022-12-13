@@ -1,6 +1,6 @@
 <h1 align="center">Nginx web server outage incident report </h1>
 
-The following incident report is based on <a href="https:https://github.com/Chuksexcel/alx-system_engineering-devops/blob/master/0x0D-web_stack_debugging_0/README.md">webstack_debbging_0</a>, five days ago an incident occurred that resulted in an outage. Today we will be providing an incident report in regards to nginx web server outage that occurred on 5th December 2022.
+The following incident report is based on <a href="https://github.com/Chuksexcel/alx-system_engineering-devops/blob/master/0x0D-web_stack_debugging_0/README.md">webstack_debbging_0</a>, five days ago an incident occurred that resulted in an outage. Today we will be providing an incident report in regards to nginx web server outage that occurred on 5th December 2022.
 
 Please find below summary by Chukwuemeka Samuel\
 Attached report <a href="https://docs.google.com/document/d/1iJzntW8DC7BnMHGDQLUeJL91xq5YwllsBHkB2HWtomU/edit?usp=sharing">Report</a>
