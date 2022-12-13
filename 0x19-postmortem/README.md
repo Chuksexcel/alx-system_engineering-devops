@@ -7,7 +7,7 @@ Attached report <a href="https://docs.google.com/document/d/1iJzntW8DC7BnMHGDQLU
 
 ## Summary
 
-From 09:25 AM to 10:15 PM  WAT, a request to the Nginx web server failed on port 80, thus resulting in an empty response message 204. The Websites that rely on Nginx application web servers were not able to spin up their content which resulted to empty responses
+From 09:25 AM to 10:15 PM  WAT, a request to the Nginx web server failed on port 80, thus resulting to an empty response message 204. The Websites that rely on Nginx application web servers were not able to spin up their content which resulted to empty responses
 
 ### Timeline (All time West Africa Time)
 
