@@ -9,15 +9,15 @@ Attached report <a href="https://docs.google.com/document/d/1iJzntW8DC7BnMHGDQLU
 
 From 09:25 AM to 10:15 PM  WAT, a request to nginx web server failed on port 80, thus resulting in an empty response message 204. The Websites that rely on nginx application web servers were not able to spin up it’s content which resulted to empty responses
 
-### Timeline (all times East Africa Time)
+### Timeline (All time West African Time)
 
-09:25 AM EAT: Nginx Configuration push starts\
-09:45 AM EAT: Beginning Outage\
-09:46 AM EAT: Get request failed\
-09:58 AM EAT: Alerted by User\
-10:07 AM EAT: Failed Configuration fixed\
-10:10 PM EAT: Nginx server Restart\
-10:15 PM EAT: status 200 for all requests.
+09:25 AM WAT: Nginx Configuration push starts\
+09:45 AM WAT: Beginning Outage\
+09:46 AM WAT: Get request failed\
+09:58 AM WAT: Alerted by User\
+10:07 AM WAT: Failed Configuration fixed\
+10:10 PM WAT: Nginx server Restart\
+10:15 PM WAT: status 200 for all requests.
 
 ### Root Cause
 
